@@ -22,13 +22,35 @@ SOFTWARE.
 */
 import {Router, Request, Response, response} from 'express';
 import {FeedItem} from '../models/FeedItem';
-import {requireAuth} from '../../users/routes/auth.router';
 import * as AWS from '../../../../aws';
 import {config} from '../../../../config/config';
 import * as fs from 'fs';
+import * as jwt from 'jsonwebtoken';
+import {NextFunction} from 'connect';
 
 const router: Router = Router();
 const axios = require('axios');
+
+export function requireAuth(req: Request, res: Response, next: NextFunction) {
+//   return next();
+    if (!req.headers || !req.headers.authorization){
+        return res.status(401).send({ message: 'No authorization headers.' });
+    }
+    
+
+    const token_bearer = req.headers.authorization.split(' ');
+    if(token_bearer.length != 2){
+        return res.status(401).send({ message: 'Malformed token.' });
+    }
+    
+    const token = token_bearer[1];
+    return jwt.verify(token, c.config.jwt.secret , (err, decoded) => {
+        if (err) {
+        return res.status(500).send({ auth: false, message: 'Failed to authenticate.' });
+        }
+        return next();
+    });
+}
 
 /* Endpoints */
 
@@ -137,7 +159,7 @@ router.get('/getImage/:id', requireAuth, async (req: Request, res: Response) => 
     });
 })
 
-// Filter an image
+/* // Filter an image
 router.patch('/filter/:id', requireAuth, async (req: Request, res: Response) => {
     // Required id parameter
     const { id } = req.params;
@@ -187,6 +209,6 @@ router.patch('/filter/:id', requireAuth, async (req: Request, res: Response) => 
         // Send a signedURL to the image for viewing
         res.status(200);
     });
-});
+}); */
 
 export const FeedRouter: Router = router;
