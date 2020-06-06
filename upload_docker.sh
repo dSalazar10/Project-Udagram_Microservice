@@ -3,7 +3,7 @@
 # Be sure to execute this command with the following:
 # . ./upload_docker.sh
 
-FOLDERS=("front-end" "restapi-feed" "restapi-user")
+FOLDERS=("front-end" "restapi-feed" "restapi-user" "reverse-proxy")
 WDIR=$PWD
 ECHO "Working directory = ${WDIR}"
 for FOLDER in ${FOLDERS[@]}
