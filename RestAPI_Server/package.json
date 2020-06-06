@@ -1,0 +1,62 @@
+{
+  "name": "udagram-restapi",
+  "version": "1.0.0",
+  "description": "Manages authentication and data",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node .",
+    "tsc": "tsc",
+    "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts",
+    "prod": "tsc && node ./www/server.js",
+    "clean": "rm -rf www/ || true",
+    "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dSalazar10/App-Udagram.git"
+  },
+  "author": "Daniel Salazar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dSalazar10/App-Udagram/issues"
+  },
+  "homepage": "https://github.com/dSalazar10/App-Udagram#readme",
+  "dependencies": {
+    "@angular/compiler": "^9.1.9",
+    "@angular/core": "^9.1.9",
+    "@sentry/node": "^5.16.1",
+    "@types/bcrypt": "^3.0.0",
+    "@types/jsonwebtoken": "^8.5.0",
+    "aws-sdk": "^2.691.0",
+    "axios": "^0.19.2",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "codelyzer": "^5.2.2",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.1",
+    "file-url": "^3.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "marked": "^1.1.0",
+    "pg": "^8.2.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.5",
+    "sequelize": "^5.21.12",
+    "sequelize-typescript": "^1.1.0",
+    "zone.js": "^0.10.3"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.32",
+    "@types/express": "^4.17.6",
+    "@types/node": "^14.0.11",
+    "@types/sequelize": "^4.28.9",
+    "@types/validator": "^13.0.0",
+    "chai-http": "^4.3.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tslint": "^6.1.2",
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "typescript": "^3.9.5"
+  }
+}
