@@ -5,14 +5,11 @@
 # Create dockerpath
 DOCKERPATH="dsalazar10/udagram:user"
 
-# Step 2:  
-# Authenticate & tag
+# Authenticate
 docker login
-docker image ls
-echo "Enter Image ID:"
-read IMG_ID
-docker tag $IMG_ID $DOCKERPATH
 
-# Step 3:
+# Build image and add a descriptive tag
+docker build -t $DOCKERPATH .
+
 # Push image to a docker repository
 docker push $DOCKERPATH

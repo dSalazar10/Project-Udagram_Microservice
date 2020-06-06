@@ -1,17 +1,16 @@
+#!/bin/bash
 
-function UploadDockerImage {
-    # Build
-    ./run_docker.sh
-
-    # Upload
-    ./upload_docker.sh
-}
+# Be sure to execute this command with the following:
+# . ./upload_docker.sh
 
 FOLDERS=("front-end" "restapi-feed" "restapi-user")
-
-for INDEX in 0 1 2
+WDIR=$PWD
+ECHO "Working directory = ${WDIR}"
+for FOLDER in ${FOLDERS[@]}
 do
-    cd $FOLDERS[$INDEX]
-    UploadDockerImage()
-    cd ..
+    echo "Changing to ${FOLDER} dir:"
+    cd $FOLDER
+    echo "Uploading..."
+    ./upload_docker.sh
+    cd $WDIR
 done
