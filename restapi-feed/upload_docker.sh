@@ -2,7 +2,7 @@
 # This file buils, tags and uploads an image to Docker Hub
 
 # Create dockerpath
-DOCKERPATH="dsalazar10/udagram:frontend"
+DOCKERPATH="dsalazar10/udagram:feed"
 
 # Authenticate
 docker login

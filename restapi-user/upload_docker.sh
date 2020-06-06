@@ -1,8 +1,9 @@
 #!/bin/bash
-# This file buils, tags and uploads an image to Docker Hub
+# This file tags and uploads an image to Docker Hub
+# Assumes that an image is built via `run_docker.sh`
 
 # Create dockerpath
-DOCKERPATH="dsalazar10/udagram:frontend"
+DOCKERPATH="dsalazar10/udagram:user"
 
 # Authenticate
 docker login
