@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## Complete the following steps to get Docker running locally
-DOCKERPATH="dsalazar10/udagram"
+DOCKERPATH="dsalazar10/udagram:frontend"
 
 # Step 1:
 # Build image and add a descriptive tag
