@@ -13,4 +13,4 @@ docker image ls
 
 # Step 3: 
 # Run service
-docker run -it -p 8080:8080 --rm $DOCKERPATH
+docker run -it -p 8100:8100 --rm $DOCKERPATH
